@@ -1,7 +1,6 @@
 //
 // Created by nikoloz latsabidze on 11.09.25.
 //
-// Solution.h
 #ifndef GAS_STATION
 #define GAS_STATION
 
