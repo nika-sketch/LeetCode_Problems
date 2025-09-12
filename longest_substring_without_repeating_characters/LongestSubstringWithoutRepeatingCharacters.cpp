@@ -10,24 +10,27 @@
 
 int LongestSubstringWithoutRepeatingCharacters::lengthOfLongestSubstring(const string &s) {
     if (s.empty()) return 0;
+
     map<int, string> occurrences;
     int startPointer = 0;
     int endPointer = 0;
     string currentSubstring;
 
-    while (startPointer < s.size()) {
-        while (endPointer < s.size() && currentSubstring.find(s[endPointer]) == string::npos) {
+    while (endPointer < s.size()) {
+        if (currentSubstring.find(s[endPointer]) == string::npos) {
             currentSubstring += s[endPointer];
             endPointer++;
-        }
-        if (!currentSubstring.empty()) {
+        } else {
             occurrences[currentSubstring.size()] = currentSubstring;
+            startPointer++;
+            endPointer = startPointer;
+            currentSubstring.clear();
         }
-        startPointer++;
-        endPointer = startPointer;
-        currentSubstring.clear();
     }
 
-    const int result = occurrences.rbegin()->first;
-    return result;
+    if (!currentSubstring.empty()) {
+        occurrences[currentSubstring.size()] = currentSubstring;
+    }
+
+    return occurrences.empty() ? 0 : occurrences.rbegin()->first;
 }
