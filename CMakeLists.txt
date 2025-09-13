@@ -8,4 +8,6 @@ add_executable(untitled main.cpp
         gas_station/GasStation.h
         longest_substring_without_repeating_characters/LongestSubstringWithoutRepeatingCharacters.cpp
         longest_substring_without_repeating_characters/LongestSubstringWithoutRepeatingCharacters.h
+        best_time_to_buy_and_sell_stock/BestTimeToBuyAndSellStock.cpp
+        best_time_to_buy_and_sell_stock/BestTimeToBuyAndSellStock.h
 )
